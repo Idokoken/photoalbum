@@ -1,22 +1,25 @@
-import styled from "styled-components"
-import Gallery from "./components/Gallery"
+//import styled from "styled-components"
+import {Routes, Route, BrowserRouter as Router} from "react-router-dom"
+import Home from "./pages/Home"
+import About from "./pages/About"
+import Contact from "./pages/Contact"
+import Header from "./components/Header"
+import Footer from "./components/Footer"
 
-const Wrapper = styled.div`
-margin: 0;
-padding: 0;
-
-h1, h2{
-	text-align: center;
-}
-`
 
 function App() {
   return (
-    <Wrapper>
-      <h1>Image Gallery</h1>
-      <h2>Please Subscribe code with Fphotos</h2>
-      <Gallery />
-    </Wrapper>
+    <Router>
+      <Header />
+      
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
+      </Routes>
+      
+      <Footer />
+    </Router>
   );
 }
 
